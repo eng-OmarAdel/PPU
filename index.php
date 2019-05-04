@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="top-menu">
 					 <span class="menu"> </span>
 					 <ul>
-						<li><a href="#about" class="scroll">about us</a></li>
+						<!-- <li><a href="#about" class="scroll">about us</a></li> -->
 						<li><a href="#services" class="scroll">services</a></li>
 					</ul>
 					</div>
@@ -79,18 +79,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <li>
 					 <h1>Pay your bills</h1>
 					<p>Currently, you can just submit your reading. We are working on the payment option.</p>
-					<a href="#" class="button  hvr-shutter-in-horizontal">more info</a>
+
 					</li>
 				 	<li>
 					<h1>Light</h1>
 					<p>While scanning your meter please make sure that light intensity is good.
           Make sure there's no light reflections from the meter.</p>
-					<a href="#" class="button  hvr-shutter-in-horizontal">more info</a>
+
 				 	</li>
           <li>
 					<h1>Clear Image</h1>
 					<p>Try to put the reading exactly in the black rectangle.</p>
-					<a href="#" class="button hvr-shutter-in-horizontal">more info</a>
+					<!-- <a href="#" class="button hvr-shutter-in-horizontal">more info</a> -->
 					</li>
 			  </ul>
 		  </div>
@@ -132,21 +132,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a href="cam.html?service=electricity">
   								<img src="images/electricity.png">
   								<h4>Electricity</h4>
-  								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus augue vitae est volutpat eleifend. </p>
+  								<p>Click me to read your meter.</p>
                 </a>
 							</div>
 							<div class="col-md-4 service-grid">
                 <a href="cam.html?service=water">
   								<img src="images/water.png">
   								<h4>Water</h4>
-  								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus augue vitae est volutpat eleifend. </p>
+  								<p>Click me to read your meter. </p>
                 </a>
 							</div>
 							<div class="col-md-4 service-grid">
                 <a href="cam.html?service=naturalgas">
   								<img src="images/naturalgas.png">
   								<h4>Natural Gas</h4>
-  								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus augue vitae est volutpat eleifend. </p>
+  								<p>Click me to read your meter. </p>
                 </a>
               </div>
 								<div class="clearfix"></div>
@@ -155,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="about-section" id="about" >
 					<div class="container">
-						<h3>about</h3>
+						<!-- <h3>about</h3>
 						<div class="about-grids">
 							<div class="col-md-6 left-about">
 								<div class="about-grid1">
@@ -190,7 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 								<div class="clearfix"></div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
