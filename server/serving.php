@@ -104,8 +104,7 @@ elseif ($fileName=='electricityMechE.png'){
 }
 elseif ($fileName=='arabic.png'){
   $command = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/main_arabic.py');
-  $output = shell_exec($command);
-  echo $output;
+  shell_exec($command);
 
   $command2 = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/TrainAndTest.py');
   $output2 = shell_exec($command2);
