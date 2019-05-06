@@ -20,7 +20,7 @@ DIGITS_LOOKUP = {
 }
 
 # load the example image
-imageGray = cv2.imread('electricityLCD1.png', 0)
+imageGray = cv2.imread('electricityLCD.png', 0)
 cv2.imwrite('ayHaga.jpg', imageGray)
 
 im = Image.open('ayHaga.jpg')
