@@ -35,10 +35,10 @@ cameraTrigger.onclick = function() {
     cameraSensor.width = cameraView.videoWidth;
     cameraSensor.height = cameraView.videoHeight;
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-    if($.urlParam('service')=='electricity'){
+    if($.urlParam('service')=='electricityLCD' || $.urlParam('service')=='water'){
       var ctx = cameraSensor.getContext("2d");
-      ctx.lineWidth = 6;
-      ctx.rect(40, 55, 390, 105);
+      ctx.lineWidth = 8;
+      ctx.rect(40, 55, 390, 109);
       ctx.strokeStyle = "black";
       ctx.stroke();
     }

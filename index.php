@@ -126,15 +126,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    ?>
 						<div class="service-grids">
 							<div class="col-md-4 service-grid">
-                <a href="cam.html?service=electricity">
+                <a href="cam.html?service=electricityLCD">
   								<img src="images/electricity.png">
   								<h4>Electricity</h4>
-  								<p>Click me to read your meter.</p>
+  								<p>Click me to read your <span class="font-weight-bold">LCD</span> meter.</p>
+                </a>
+							</div>
+              <div class="col-md-4 service-grid">
+                <a href="cam.html?service=electricityMechE">
+  								<img src="images/electricity.png">
+                  <!--main.py then newOCR-->
+  								<h4>Electricity</h4>
+  								<p>Click me to read your <span class="font-weight-bold">English Mechanical</span> meter.</p>
+                </a>
+							</div>
+              <div class="col-md-4 service-grid">
+                <a href="cam.html?service=electricityMechA">
+  								<img src="images/electricity.png">
+                  <!--mainArabic.py then train&test.py-->
+  								<h4>Electricity</h4>
+  								<p>Click me to read your <span class="font-weight-bold">Arabic Mechanical</span> meter.</p>
                 </a>
 							</div>
 							<div class="col-md-4 service-grid">
                 <a href="cam.html?service=water">
   								<img src="images/water.png">
+                  <!--watermain.py then API-->
   								<h4>Water</h4>
   								<p>Click me to read your meter. </p>
                 </a>
@@ -143,6 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <a href="cam.html?service=naturalgas">
   								<img src="images/naturalgas.png">
   								<h4>Natural Gas</h4>
+                  <!--mainArabic.py then train&test.py-->
   								<p>Click me to read your meter. </p>
                 </a>
               </div>

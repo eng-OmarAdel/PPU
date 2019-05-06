@@ -19,7 +19,7 @@ DIGITS_LOOKUP = {
 }
 
 # load the example image
-image = cv2.imread('electricityLCD.png')
+image = cv2.imread('water.png')
 
 # pre-process the image by resizing it, converting it to
 # graycale, blurring it, and computing an edge map
@@ -56,21 +56,8 @@ for c in cnts:
 warped = four_point_transform(gray, displayCnt.reshape(4, 2))
 output = four_point_transform(image, displayCnt.reshape(4, 2))
 
-# going to LCD_OCR.py
-cv2.imwrite("warpedIMG.jpg", warped)
-#cv2.imshow("warped", warped)
-#cv2.waitKey()
+thresh1 = 50
+im_bw = cv2.threshold(warped, thresh1, 255, cv2.THRESH_BINARY)[1]
+cv2.imwrite("mainOutput.jpg", im_bw)
 
-# threshold the warped image, then apply a series of morphological
-# operations to cleanup the thresholded image
-thresh = cv2.threshold(warped, 0, 255,
-	cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (1, 5))
-
-#cv2.imshow("thresh", thresh)
-#cv2.waitKey()
-
-thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-
-#cv2.imshow("morph", thresh)
-#cv2.waitKey()
+#this image goes to newOCR API to be recognized isA

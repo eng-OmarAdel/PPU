@@ -27,7 +27,7 @@ def sort_contours(cnts, method="left-to-right"):
 
 
 #-------------------------- Reading the Image --------------------
-img = cv2.imread('electricityMechE.png', 0)
+img = cv2.imread('arabic.png', 0)
 #cv2.imshow('grayScale', img)
 #cv2.waitKey(0)
 thresh = 127
@@ -76,7 +76,7 @@ output = cv2.imread('1.png')
 
 
 #------------------ Resizing ------------------
-scale_percent = 150 # percent of original size
+scale_percent = 140 # percent of original size
 width = int(output.shape[1] * scale_percent / 100)
 height = int(output.shape[0] * scale_percent / 100)
 dim = (width, height)
@@ -88,29 +88,21 @@ resized = cv2.resize(output, dim, interpolation = cv2.INTER_AREA)
 
 
 #--------------------------- Denoising the output ----------------
-#cv2.imwrite('LCD.png', resized)
-kernel2 = cv2.getStructuringElement(cv2.MORPH_RECT,(5,5))
-opening = cv2.morphologyEx(resized, cv2.MORPH_OPEN, kernel2)
-#cv2.imshow('Opening', opening)
-#cv2.waitKey(0)
-closing = cv2.morphologyEx(opening, cv2.MORPH_CLOSE, kernel2)
-#cv2.imshow('Closing', closing)
-#cv2.waitKey(0)
-closingNOT = cv2.bitwise_not(closing)
-cv2.imwrite('closingNOT.png', closingNOT)
+closingNOT2 = cv2.bitwise_not(output)
+cv2.imwrite('closingNOT_arabic.png', closingNOT2)
 #------------------------------------------------------------------
 
 
 #------------------------------- Cropping -------------------
-im = Image.open('closingNOT.png')
+im = Image.open('closingNOT_arabic.png')
 #im.show()
 width, height = im.size   # Get dimensions
 new_height = height/2
 left = (width - width)/2
-top = (height - new_height)/2 -14
-right = ((width + width)/2) -10
-bottom = (height + new_height)/2 +14
+top = (height - new_height)/2 -16
+right = ((width + width)/2) -12
+bottom = (height + new_height)/2 +16
 cropped = im.crop((left, top, right, bottom))
 #cropped.show()
-cropped.save('mainOutput.jpg')
+cropped.save('mainOutput_arabic.jpg')
 #-----------------------------------------------------------

@@ -29,12 +29,13 @@ $IQR=$Q3-$Q1;
 $maxN=$IQR+$Q3;
 $minN=$IQR-$Q1;
 //--------------Getting and saving the image from the user------------------
-if($_POST['service']=='electricity'){
-    $fileName = $_POST['service'].".png";
+if($_POST['service']=="naturalgas" || $_POST['service']=="electricityMechA"){
+  $fileName = "arabic.png";
 }
 else{
-  $fileName="normal.png";
+  $fileName = $_POST['service'].".png";
 }
+
 //Get the base-64 string from data
 $filteredData=substr($_POST['data'], strpos($_POST['data'], ",")+1);
 //Decode the string
@@ -44,11 +45,10 @@ file_put_contents($fileName, $unencodedData);
 
 
 //--------------LCD or traditional?-----------------------
-if($fileName=='electricity.png'){
+if($fileName=='electricityLCD.png'){
   //LCD
   $command = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/LCDdetection.py');
-  $output = shell_exec($command);
-  echo $output;
+  shell_exec($command);
 
   $command2 = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/LCD_OCR.py');
   $output2 = shell_exec($command2);
@@ -69,7 +69,7 @@ if($fileName=='electricity.png'){
     echo $msg = "Your Usage is: ".$usage;
   }
 }
-else{
+elseif ($fileName=='electricityMechE.png'){
 
   //traditional
   $scriptCommand = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/main.py');
@@ -87,13 +87,13 @@ else{
    $reading= preg_replace('/\s+/', '', $resultRecognize['data']['text']);
    curl_close($ch);
    $reading=preg_replace("/^[a-zA-Z]+$/",'5',$reading);
-   if($_POST['service']=='water'){
-     $usage=intval($reading)-$oldReadingW;
-     if($usage<$minW){
+     $usage=intval($reading)-$oldReadingE;
+     if($usage<$minE){
        //Theif or faulty meter
        echo $msg = "Your Usage is too low: ".$usage;
+
      }
-     elseif ($usage>$maxW) {
+     elseif ($usage>$maxE) {
        // faulty meter or high usage
        echo $msg = "Your Usage is too high: ".$usage;
      }
@@ -101,22 +101,83 @@ else{
        //success your reading is
        echo $msg = "Your Usage is: ".$usage;
      }
-   }
-   else{
-     $usage=intval($reading)-$oldReadingN;
-     if($usage<$minN){
-       //Theif or faulty meter
-       echo $msg = "Your Usage is too low: ".$usage;
-     }
-     elseif ($usage>$maxN) {
-       // faulty meter or high usage
-       echo $msg = "Your Usage is too high: ".$usage;
-     }
-     else{
-       //success your reading is
-       echo $msg = "Your Usage is: ".$usage;
-     }
-   }
+}
+elseif ($fileName=='arabic.png'){
+  $command = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/main_arabic.py');
+  $output = shell_exec($command);
+  echo $output;
+
+  $command2 = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/TrainAndTest.py');
+  $output2 = shell_exec($command2);
+  $reading=preg_replace('/\s+/', '', $output2);
+  $reading=preg_replace("/^[a-zA-Z]+$/",'5',$reading);
+  $usage=intval($reading)-$oldReadingE;
+  if($_POST['service']=='electricityMechA'){
+    if($usage<$minE){
+      //Theif or faulty meter
+      echo $msg = "Your Usage is too low: ".$usage;
+
+    }
+    elseif ($usage>$maxE) {
+      // faulty meter or high usage
+      echo $msg = "Your Usage is too high: ".$usage;
+    }
+    else{
+      //success your reading is
+      echo $msg = "Your Usage is: ".$usage;
+    }
+  }
+  else{
+    if($usage<$minN){
+      //Theif or faulty meter
+      echo $msg = "Your Usage is too low: ".$usage;
+
+    }
+    elseif ($usage>$maxN) {
+      // faulty meter or high usage
+      echo $msg = "Your Usage is too high: ".$usage;
+    }
+    else{
+      //success your reading is
+      echo $msg = "Your Usage is: ".$usage;
+    }
+  }
+
+
+
+}
+elseif ($fileName=='water.png'){
+
+  $command = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/WaterMeter.py');
+  shell_exec($command);
+
+  //--------------OCR API-------------------------------------
+  //------------Upload-------------------------
+  $uploadCommand = escapeshellcmd('curl -H "Expect:" -F file=@/var/www/html/pputest.tk/PPU/server/mainOutput.jpg http://api.newocr.com/v1/upload?key=81c6b3a28fb450bd1bd8b4356923b37b');
+  $output2 = shell_exec($uploadCommand);
+  $result = json_decode($output2, true);
+    //------------Recognize-------------------------
+    $ch = curl_init('http://api.newocr.com/v1/ocr?key=81c6b3a28fb450bd1bd8b4356923b37b&file_id='.$result['data']['file_id'].'&page=1&lang=eng&psm=6');
+   curl_setopt($ch, CURLOPT_HEADER, 0);
+   $resultRecognize = curl_exec($ch);
+   //{"status":"success","data":{"text":"2210 5 g |","progress":"100"}}bool(true)
+   $reading= preg_replace('/\s+/', '', $resultRecognize['data']['text']);
+   curl_close($ch);
+   $reading=preg_replace("/^[a-zA-Z]+$/",'5',$reading);
+  $usage=intval($reading)-$oldReadingW;
+  if($usage<$minW){
+    //Theif or faulty meter
+    echo $msg = "Your Usage is too low: ".$usage;
+
+  }
+  elseif ($usage>$maxW) {
+    // faulty meter or high usage
+    echo $msg = "Your Usage is too high: ".$usage;
+  }
+  else{
+    //success your reading is
+    echo $msg = "Your Usage is: ".$usage;
+  }
 
 
 }
