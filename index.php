@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -106,27 +110,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="service-section" id="services">
 					<div class="container">
 						<h3> our services</h3>
-            <?php if(isset($GLOBALS['reading'])){
-              if(isset($GLOBALS['low'])){
-                echo '<div class="alert alert-danger" role="alert">
-                        '.$GLOBALS["low"].': '.$GLOBALS["reading"].'
-                      </div>';
-                unset($GLOBALS['low']);
+            <?php
+	     if(isset($_GET['usage'])){
+                if(strpos($_GET['usage'],"too")) {
+                  echo '<div class="alert alert-danger" role="alert">
+                          '.$_GET['usage'].'
+                        </div>';
+                }
+                else{
+                  echo '<div class="alert alert-success" role="alert">
+                          '.$_GET['usage'].'
+                        </div>';
+                }
               }
-              elseif (isset($GLOBALS['high'])) {
-                echo '<div class="alert alert-danger" role="alert">
-                        '.$GLOBALS["high"].': '.$GLOBALS["reading"].'
-                      </div>';
-                unset($GLOBALS['high']);
-
-              }
-              else{
-                echo '<div class="alert alert-success" role="alert">
-                        Your usage is: '.$GLOBALS['reading'].'
-                      </div>';
-              }
-              unset($GLOBALS['reading']);
-            } ?>
+	    ?>
 						<div class="service-grids">
 							<div class="col-md-4 service-grid">
                 <a href="cam.html?service=electricity">

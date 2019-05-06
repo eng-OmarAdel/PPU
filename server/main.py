@@ -27,7 +27,7 @@ def sort_contours(cnts, method="left-to-right"):
 
 
 #-------------------------- Reading the Image --------------------
-img = cv2.imread('normal.jpg', 0)
+img = cv2.imread('normal.png', 0)
 #cv2.imshow('grayScale', img)
 #cv2.waitKey(0)
 thresh = 127

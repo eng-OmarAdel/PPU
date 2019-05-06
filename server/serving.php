@@ -1,4 +1,5 @@
 <?php
+session_start();
 //randomname
 // function generateRandomString($length = 10) {
 //     return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
@@ -43,40 +44,39 @@ file_put_contents($fileName, $unencodedData);
 
 
 //--------------LCD or traditional?-----------------------
-if($filename=='electricity'){
+if($fileName=='electricity.png'){
   //LCD
-  $command = escapeshellcmd('python C:/xampp/htdocs/ppu/server/LCDdetection.py');
+  $command = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/LCDdetection.py');
   $output = shell_exec($command);
   echo $output;
 
-  $command2 = escapeshellcmd('python C:/xampp/htdocs/ppu/server/LCD_OCR.py');
+  $command2 = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/LCD_OCR.py');
   $output2 = shell_exec($command2);
   $reading=preg_replace('/\s+/', '', $output2);
   $reading=preg_replace("/^[a-zA-Z]+$/",'5',$reading);
   $usage=intval($reading)-$oldReadingE;
   if($usage<$minE){
     //Theif or faulty meter
-    $GLOBALS['low']="Your Usage is too low";
-    $GLOBALS['reading']=$usage;
+    echo $msg = "Your Usage is too low: ".$usage;
+
   }
   elseif ($usage>$maxE) {
     // faulty meter or high usage
-    $GLOBALS['high']="Your Usage is too high";
-    $GLOBALS['reading']=$usage;
+    echo $msg = "Your Usage is too high: ".$usage;
   }
   else{
     //success your reading is
-    $GLOBALS['reading']=$usage;
+    echo $msg = "Your Usage is: ".$usage;
   }
 }
 else{
 
   //traditional
-  $scriptCommand = escapeshellcmd('python C:/xampp/htdocs/ppu/server/main.py');
+  $scriptCommand = escapeshellcmd('python3.7 /var/www/html/pputest.tk/PPU/server/main.py');
   shell_exec($scriptCommand);
   //--------------OCR API-------------------------------------
   //------------Upload-------------------------
-  $uploadCommand = escapeshellcmd('curl -H "Expect:" -F file=@C:/xampp/htdocs/ppu/server/mainOutput.jpg http://api.newocr.com/v1/upload?key=81c6b3a28fb450bd1bd8b4356923b37b');
+  $uploadCommand = escapeshellcmd('curl -H "Expect:" -F file=@/var/www/html/pputest.tk/PPU/server/mainOutput.jpg http://api.newocr.com/v1/upload?key=81c6b3a28fb450bd1bd8b4356923b37b');
   $output2 = shell_exec($uploadCommand);
   $result = json_decode($output2, true);
     //------------Recognize-------------------------
@@ -91,34 +91,30 @@ else{
      $usage=intval($reading)-$oldReadingW;
      if($usage<$minW){
        //Theif or faulty meter
-       $GLOBALS['low']="Your Usage is too low";
-       $GLOBALS['reading']=$usage;
+       echo $msg = "Your Usage is too low: ".$usage;
      }
      elseif ($usage>$maxW) {
        // faulty meter or high usage
-       $GLOBALS['high']="Your Usage is too high";
-       $GLOBALS['reading']=$usage;
+       echo $msg = "Your Usage is too high: ".$usage;
      }
      else{
        //success your reading is
-       $GLOBALS['reading']=$usage;
+       echo $msg = "Your Usage is: ".$usage;
      }
    }
    else{
      $usage=intval($reading)-$oldReadingN;
      if($usage<$minN){
        //Theif or faulty meter
-       $GLOBALS['low']="Your Usage is too low";
-       $GLOBALS['reading']=$usage;
+       echo $msg = "Your Usage is too low: ".$usage;
      }
      elseif ($usage>$maxN) {
        // faulty meter or high usage
-       $GLOBALS['high']="Your Usage is too high";
-       $GLOBALS['reading']=$usage;
+       echo $msg = "Your Usage is too high: ".$usage;
      }
      else{
        //success your reading is
-       $GLOBALS['reading']=$usage;
+       echo $msg = "Your Usage is: ".$usage;
      }
    }
 

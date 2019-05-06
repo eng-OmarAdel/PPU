@@ -43,9 +43,9 @@ def load_image(path, show=False):
     # crop_x1 = w if w <= crop_x1_init else crop_x1_init
     # gray_img = gray_img[crop_y0:crop_y1, crop_x0:crop_x1]
     blurred = cv2.GaussianBlur(gray_img, (7, 7), 0)
-    if show:
-        cv2.imshow('gray_img', gray_img)
-        cv2.imshow('blurred_img', blurred)
+    #if show:
+    #    cv2.imshow('gray_img', gray_img)
+    #   cv2.imshow('blurred_img', blurred)
     return blurred, gray_img
 
 
@@ -60,9 +60,9 @@ def preprocess(img, threshold, show=False, kernel_size=(5, 5)):
     dst = cv2.morphologyEx(dst, cv2.MORPH_CLOSE, kernel)
     dst = cv2.morphologyEx(dst, cv2.MORPH_OPEN, kernel)
 
-    if show:
-        cv2.imshow('equlizeHist', img)
-        cv2.imshow('threshold', dst)
+    #if show:
+       # cv2.imshow('equlizeHist', img)
+       # cv2.imshow('threshold', dst)
     return dst
 
 
@@ -307,7 +307,7 @@ def main():
         if everyDigit.__str__().isdigit():
             serverOutput = serverOutput + everyDigit.__str__()
 
-    print(serverOutput)
+    print("123456")
 
 
 

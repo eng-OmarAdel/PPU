@@ -17,7 +17,7 @@ function cameraStart() {
             cameraView.style.transform="scaleX(1)";
             setTimeout(function(){
                   var ctx = cameraSensor.getContext("2d");
-                  ctx.rect(101, 10, 100, 31);
+                  ctx.rect(106, 10, 90, 31);
                   ctx.strokeStyle = "black";
                   ctx.stroke();
         }, 500);
@@ -37,7 +37,8 @@ cameraTrigger.onclick = function() {
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
     if($.urlParam('service')=='electricity'){
       var ctx = cameraSensor.getContext("2d");
-      ctx.rect(20, 55, 440, 99);
+      ctx.lineWidth = 6;
+      ctx.rect(40, 55, 390, 105);
       ctx.strokeStyle = "black";
       ctx.stroke();
     }
@@ -54,9 +55,8 @@ cameraTrigger.onclick = function() {
         'data' : image_data ,
         'service' : $.urlParam('service')
       },function(data,status){
-        setTimeout(function(){
-          window.location.href = "/";
-        }, 500);
+	  var msg=data.substr(data.lastIndexOf('}')+1);
+          window.location.href = "/?usage="+msg;
       }
     );
     // cameraOutput.classList.add("taken");
