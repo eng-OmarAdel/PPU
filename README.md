@@ -47,3 +47,9 @@ The image:
 After image processing:
 ![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/mainOutput_arabic.jpg)
 So the output is "**004618222**" this error is due to the low accuracy of this OCR.
+### Water meter
+The image:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/arabic2.jpg)
+After image processing:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/warpedIMG (22).jpg)
+So the output is "**09623**".
