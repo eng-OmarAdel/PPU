@@ -4,8 +4,9 @@
 #### [Getting started](https://github.com/eng-OmarAdel/PPU/blob/master/README.md#getting-started)
 #### [Constraints](https://github.com/eng-OmarAdel/PPU/blob/master/README.md#constraints)
 #### [How it works](https://github.com/eng-OmarAdel/PPU/blob/master/README.md#how-it-works)
-#### [Old repo](https://github.com/OmarAliAbdelNaby/ImageProcessing)
+#### [IP subteam repo](https://github.com/OmarAliAbdelNaby/ImageProcessing)
 #### [Online website](http://pputest.tk/)
+Note: "IP subteam repo" is a repo for the image processing codes you can access and run them separately following the readme steps there and the contributions of this subteam are there too. 
 Note: Currently there's a problem with the server we are hosting on (Its python is not working for some reason.) We are working on the issue, but rest assured our app will work perfectly fine on your localhost or any other host.
 ## Overview
 PPU is a simple and user-friendly web app that allows citizens to take a photo of their electric ,
