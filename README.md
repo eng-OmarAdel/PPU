@@ -40,36 +40,36 @@ The image:
 
 After image processing:
 
-![image after IP](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1_mainOutput.jpg)
+![image after IP](/images/example1_mainOutput.jpg)
 
 This image goes to the OCR API to recognize the digits, the output will be: "22105" because the last digit in the meter in the red box which is not guaranteed that it will be in the right position that all of it will disappear well so the OCR can't recognize the last digit well. So we replaced every last digit always with 5 so the output will be "**221055**".
 ### LCD Meter
 The image:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example22_6.jpg)
+![alt text](/images/example22_6.jpg)
 
 The output on pyCharm:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example22_6.jpg)
+![alt text](/images/example22_6.jpg)
 
 In LCD meters we use an offline OCR trained for 7-segments digits (will be explained in the implementation part) so the output is "**27142**".
 ### Arabic Mechanical meter
 The image:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/arabic.jpg)
+![alt text](/images/arabic.jpg)
 
 After image processing:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/mainOutput_arabic.jpg)
+![alt text](/images/mainOutput_arabic.jpg)
 
 So the output is "**004618222**" this error is due to the low accuracy of this OCR.
 ### Water meter
 The image:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/arabic2.jpg)
+![alt text](/images/arabic2.jpg)
 
 After image processing:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/warpedIMG22.jpg)
+![alt text](/images/warpedIMG22.jpg)
 
 So the output is "**09623**".
