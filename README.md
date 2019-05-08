@@ -48,11 +48,11 @@ The image:
 
 ![alt text](/images/example22_6.jpg)
 
-The output on pyCharm:
+After image processing:
 
-![alt text](/images/example22_6.jpg)
+![alt text](/images/LCDoutput.jpg)
 
-In LCD meters we use an offline OCR trained for 7-segments digits (will be explained in the implementation part) so the output is "**27142**".
+In LCD meters we use an offline OCR trained for 7-segments digits and in it we crop from this image the frame first before detecting and recognizing so the output is "**27142**".
 ### Arabic Mechanical meter
 The image:
 
