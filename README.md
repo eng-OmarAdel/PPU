@@ -36,11 +36,11 @@ server.php then checks which meter you want to read then it executes the corresp
 ### English Mechanical meter
 The image:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1.jpg)
+![image](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1.jpg)
 
 After image processing:
 
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1_mainOutput.jpg)
+![image after IP](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1_mainOutput.jpg)
 
 This image goes to the OCR API to recognize the digits, the output will be: "22105" because the last digit in the meter in the red box which is not guaranteed that it will be in the right position that all of it will disappear well so the OCR can't recognize the last digit well. So we replaced every last digit always with 5 so the output will be "**221055**".
 ### LCD Meter
