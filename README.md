@@ -51,5 +51,5 @@ So the output is "**004618222**" this error is due to the low accuracy of this O
 The image:
 ![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/arabic2.jpg)
 After image processing:
-![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/warpedIMG (22).jpg)
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/warpedIMG22.jpg)
 So the output is "**09623**".
