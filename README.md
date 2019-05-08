@@ -29,5 +29,21 @@ gas or water meter and detects the reading of the meter, and shows it to the use
 First index.php is loaded (it checks if the GET message contains usage variable if so it displays it).
 After choosing your desired meter, cam.html is loaded. When you take your photo we use AJAX to send it to server.php.
 server.php then checks which meter you want to read then it executes the corresponding python script and gets the reading from it. To communicate with the OCR API we use cURL. Then it checks whether the reading is normal or an outlier and sends this information back to the AJAX post. cam.html then redirects you back to index.php with usage variable carrying the message to be displayed with your reading and its status.
-### X meter
-### Y meter
+### English Mechanical meter
+The image:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1.jpg)
+After image processing:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1_mainOutput.jpg)
+This image goes to the OCR API to recognize the digits, the output will be: "22105" because the last digit in the meter in the red box which is not guaranteed that it will be in the right position that all of it will disappear well so the OCR can't recognize the last digit well. So we replaced every last digit always with 5 so the output will be "**221055**".
+### LCD Meter
+The image:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example22_6.jpg)
+The output on pyCharm:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/example22_6.jpg)
+In LCD meters we use an offline OCR trained for 7-segments digits (will be explained in the implementation part) so the output is "**27142**".
+### Arabic Mechanical meter
+The image:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/arabic.jpg)
+After image processing:
+![alt text](https://github.com/eng-OmarAdel/PPU/tree/master/images/mainOutput_arabic.jpg)
+So the output is "**004618222**" this error is due to the low accuracy of this OCR.
