@@ -6,7 +6,7 @@
 #### [How it works](https://github.com/eng-OmarAdel/PPU/blob/master/README.md#how-it-works)
 #### [Old repo](https://github.com/OmarAliAbdelNaby/ImageProcessing)
 #### [Online website](http://pputest.tk/)
-
+Note: Currently there's a problem with the server we are hosting on (Its python is not working for some reason) we are working on the issue but rest assured our app will work perfectly fine on your localhost or any other host.
 ## Overview
 PPU is a simple and user-friendly web app that allows citizens to take a photo of their electric ,
 gas or water meter and detects the reading of the meter, and shows it to the user.
