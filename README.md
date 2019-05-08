@@ -36,7 +36,7 @@ server.php then checks which meter you want to read then it executes the corresp
 ### English Mechanical meter
 The image:
 
-![image](https://github.com/eng-OmarAdel/PPU/tree/master/images/example1.jpg)
+![image](/images/example1.jpg)
 
 After image processing:
 
